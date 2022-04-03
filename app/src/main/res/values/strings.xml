@@ -8,4 +8,6 @@
     <string name="fast_easy">Fast &amp; Easy</string>
     <string name="order_pay_here">Order \n&amp; pay\n here</string>
     <string name="where_will_you_be_eating_today">Where will you be eating today?</string>
+    <string name="eat_in">Eat in</string>
+    <string name="take_out">Take out</string>
 </resources>
