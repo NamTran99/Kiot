@@ -1,6 +1,6 @@
 package com.example.kiotapp.data
 
-interface ItemMenuAction<T : KiotEntity> {
+interface ItemMenuAction<T : Product> {
     fun onClickTab(idTab : Int){
 
     }

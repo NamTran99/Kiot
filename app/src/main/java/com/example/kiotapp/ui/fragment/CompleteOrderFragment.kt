@@ -18,7 +18,7 @@ class CompleteOrderFragment : Fragment(R.layout.complete_order_fragment) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = CompleteOrderFragmentBinding.inflate(layoutInflater)
         return binding.root
     }

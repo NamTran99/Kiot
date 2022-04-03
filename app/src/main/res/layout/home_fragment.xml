@@ -11,58 +11,58 @@
             android:id="@+id/recyclerTab"
             android:layout_width="@dimen/dp70"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:gravity="center_horizontal"
+            android:orientation="vertical"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:layout_width="@dimen/dp40"
                 android:layout_height="@dimen/dp40"
-                android:src="@drawable/ic_menu"
+                android:onClick="@{()->action.onClickTab(Const.TAB1)}"
                 android:scaleType="fitXY"
-                android:onClick="@{()->viewmodel.onClickTab(Const.TAB1)}" />
-
-            <ImageView
-                android:scaleType="fitXY"
-                android:layout_width="@dimen/dp40"
-                android:layout_height="@dimen/dp40"
-                android:src="@drawable/ic_beverages"
-                android:layout_marginTop="@dimen/dp20"
-                android:onClick="@{()->viewmodel.onClickTab(Const.TAB2)}" />
+                android:src="@drawable/ic_menu" />
 
             <ImageView
                 android:layout_width="@dimen/dp40"
                 android:layout_height="@dimen/dp40"
                 android:layout_marginTop="@dimen/dp20"
+                android:onClick="@{()->action.onClickTab(Const.TAB2)}"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_breakfast"
-                android:onClick="@{()->viewmodel.onClickTab(Const.TAB3)}" />
+                android:src="@drawable/ic_beverages" />
 
             <ImageView
-                android:scaleType="fitXY"
                 android:layout_width="@dimen/dp40"
                 android:layout_height="@dimen/dp40"
                 android:layout_marginTop="@dimen/dp20"
-                android:src="@drawable/ic_burgers"
-                android:onClick="@{()->viewmodel.onClickTab(Const.TAB4)}" />
+                android:onClick="@{()->action.onClickTab(Const.TAB3)}"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_breakfast" />
+
+            <ImageView
+                android:layout_width="@dimen/dp40"
+                android:layout_height="@dimen/dp40"
+                android:layout_marginTop="@dimen/dp20"
+                android:onClick="@{()->action.onClickTab(Const.TAB4)}"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_burgers" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/txtTitle1"
-            android:text="@string/main_menu"
             style="@style/textStyleTitle"
+            android:text="@string/main_menu"
             app:layout_constraintLeft_toRightOf="@+id/recyclerTab"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:padding="@dimen/dp15"
             android:id="@+id/txtInformation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp20"
             android:layout_marginHorizontal="@dimen/dp4"
+            android:layout_marginBottom="@dimen/dp20"
             android:background="@drawable/boder_textview"
+            android:padding="@dimen/dp15"
             android:text="@string/my_order_eat_in"
             app:layout_constraintBottom_toTopOf="@+id/btnDone"
             app:layout_constraintEnd_toEndOf="parent"
@@ -84,9 +84,9 @@
             style="@style/buttonStyle"
             android:layout_width="@dimen/dp0"
             android:layout_height="@dimen/dp40"
-            android:layout_marginBottom="@dimen/dp10"
-            android:layout_marginEnd="@dimen/dp20"
             android:layout_marginStart="@dimen/dp20"
+            android:layout_marginEnd="@dimen/dp20"
+            android:layout_marginBottom="@dimen/dp10"
             android:text="@string/cancel_order"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -97,13 +97,13 @@
             android:layout_width="@dimen/dp0"
             android:layout_height="@dimen/dp0"
             android:layout_marginStart="@dimen/dp10"
-            android:orientation="vertical"
             android:layout_marginTop="@dimen/dp10"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/txtInformation"
             app:layout_constraintLeft_toRightOf="@+id/recyclerTab"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtTitle1" />
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle1"
+            app:spanCount="@integer/product_home_span_count" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -112,7 +112,8 @@
         <import type="com.example.kiotapp.utils.Const" />
 
         <variable
-            name="viewmodel"
+            name="action"
             type="com.example.kiotapp.ui.viewmodel.HomeViewModel" />
+
     </data>
 </layout>

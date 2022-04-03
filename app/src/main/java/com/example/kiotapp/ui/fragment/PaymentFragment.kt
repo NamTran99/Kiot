@@ -14,7 +14,7 @@ class PaymentFragment : Fragment(R.layout.payment_fragment) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = PaymentFragmentBinding.inflate(layoutInflater)
         return binding.root
     }
