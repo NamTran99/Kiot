@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">KiotApp</string>
+    <string name="cancel_order">Cancel order</string>
+    <string name="done">Done</string>
+    <string name="my_order_eat_in">My Order - Eat | Tax: $0.53 | Total: $4.03 | Items: 2</string>
+    <string name="main_menu">Main Menu</string>
+    <string name="touch_to_start">Touch to start</string>
+    <string name="fast_easy">Fast &amp; Easy</string>
+    <string name="order_pay_here">Order \n&amp; pay\n here</string>
+    <string name="where_will_you_be_eating_today">Where will you be eating today?</string>
 </resources>

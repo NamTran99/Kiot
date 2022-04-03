@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/h003080"
+    android:gravity="center">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageLogo"
+            android:layout_width="@dimen/dp75"
+            android:layout_height="@dimen/dp75"
+            android:src="@drawable/ic_menu"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img2"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp20"
+            android:src="@drawable/img_eat_in"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/img1"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
+
+        <ImageView
+            android:id="@+id/img1"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="@dimen/dp0"
+            android:layout_marginEnd="@dimen/dp20"
+            android:src="@drawable/img_take_out"
+            app:layout_constraintBottom_toBottomOf="@+id/img2"
+            app:layout_constraintLeft_toRightOf="@+id/img2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/img2" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            style="@style/textStyleTitle"
+            android:layout_marginEnd="@dimen/dp10"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="@string/where_will_you_be_eating_today"
+            android:textColor="@color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageLogo" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

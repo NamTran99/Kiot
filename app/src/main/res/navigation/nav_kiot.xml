@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_kiot"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.kiotapp.ui.fragment.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/splash_fragment">
+        <action
+            android:id="@+id/action_splashFragment_to_choiceEatingFragment"
+            app:destination="@id/choiceEatingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/choiceEatingFragment"
+        android:name="com.example.kiotapp.ui.fragment.ChoiceEatingFragment"
+        android:label="ChoiceEatingFragment"
+        tools:layout="@layout/choice_eating_fragment">
+        <action
+            android:id="@+id/action_choiceEatingFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.kiotapp.ui.fragment.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/home_fragment">
+        <action
+            android:id="@+id/action_homeFragment_to_reviewOrderFragment"
+            app:destination="@id/reviewOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reviewOrderFragment"
+        android:name="com.example.kiotapp.ui.fragment.ReviewOrderFragment"
+        android:label="ReviewOrderFragment"
+        tools:layout="@layout/review_order_fragment">
+        <action
+            android:id="@+id/action_reviewOrderFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.example.kiotapp.ui.fragment.PaymentFragment"
+        android:label="PaymentFragment"
+        tools:layout="@layout/payment_fragment">
+        <action
+            android:id="@+id/action_paymentFragment_to_completeOrderFragment"
+            app:destination="@id/completeOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/completeOrderFragment"
+        android:name="com.example.kiotapp.ui.fragment.CompleteOrderFragment"
+        android:label="CompleteOrderFragment"
+        tools:layout="@layout/complete_order_fragment"/>
+</navigation>
