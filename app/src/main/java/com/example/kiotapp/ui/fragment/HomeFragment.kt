@@ -2,6 +2,7 @@ package com.example.kiotapp.ui.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -15,7 +16,10 @@ import com.example.kiotapp.ui.viewmodel.HomeViewModel
 import com.example.kiotapp.utils.checkMotionEvent
 
 @SuppressLint("ClickableViewAccessibility")
-class HomeFragment : Fragment(R.layout.home_fragment) {
+class HomeFragment : Fragment(R.layout.home_fragment){
+    companion object{
+        const val TAG = "HomeFragment"
+    }
     private lateinit var binding: HomeFragmentBinding
     private val viewModel by activityViewModels<HomeViewModel>()
     private val productAdapter = HomeProductAdapters()
@@ -29,9 +33,10 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         binding.apply {
             action = viewModel
             recyclerHome.adapter = productAdapter
-
-            return binding.root
         }
+
+        initObserver()
+        return binding.root
     }
 
 
@@ -41,11 +46,11 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     }
 
     private fun initObserver() {
-        viewModel.allProduct.observe(viewLifecycleOwner) {
+        viewModel.allProduct.observe(viewLifecycleOwner){
+            Log.d(TAG, "initObserver: data for product adapter: $it")
             productAdapter.updateItems(it.toMutableList())
         }
     }
-
     private fun initEffect() {
         binding.tab1.imgItemTab.setOnTouchListener { _, motionEvent ->
             binding.tab1.linearItemTab.isPressed = checkMotionEvent(motionEvent)

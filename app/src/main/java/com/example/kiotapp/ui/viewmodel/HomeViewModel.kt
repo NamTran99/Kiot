@@ -6,12 +6,13 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.kiotapp.data.ItemMenuAction
 import com.example.kiotapp.data.Product
-import com.example.kiotapp.data.Repository
+import com.example.kiotapp.data.repository.IRepository
+import com.example.kiotapp.data.repository.Repository
 import com.example.kiotapp.utils.Const
 
 class HomeViewModel(application: Application) : AndroidViewModel(application),
     ItemMenuAction<Product> {
-    private val repository = Repository.getInstance()
+    private val repository: IRepository = Repository.getInstance()
 
     init {
         repository.getAllProduct()
@@ -30,18 +31,18 @@ class HomeViewModel(application: Application) : AndroidViewModel(application),
             Product(name = "SangTB"),
             Product(name = "SangTB"),
             Product(name = "SangTB"),
-            Product(name = "SangTB",type = Const.TAB2),
-            Product(name = "SangTB",type = Const.TAB2),
-            Product(name = "SangTB",type = Const.TAB2),
-            Product(name = "SangTB",type = Const.TAB2),
-            Product(name = "SangTB",type = Const.TAB3),
-            Product(name = "SangTB",type = Const.TAB3),
-            Product(name = "SangTB",type = Const.TAB3),
-            Product(name = "SangTB",type = Const.TAB3),
-            Product(name = "SangTB",type = Const.TAB4),
-            Product(name = "SangTB",type = Const.TAB4),
-            Product(name = "SangTB",type = Const.TAB4),
-            Product(name = "SangTB",type = Const.TAB4),
+            Product(name = "SangTB", type = Const.TAB2),
+            Product(name = "SangTB", type = Const.TAB2),
+            Product(name = "SangTB", type = Const.TAB2),
+            Product(name = "SangTB", type = Const.TAB2),
+            Product(name = "SangTB", type = Const.TAB3),
+            Product(name = "SangTB", type = Const.TAB3),
+            Product(name = "SangTB", type = Const.TAB3),
+            Product(name = "SangTB", type = Const.TAB3),
+            Product(name = "SangTB", type = Const.TAB4),
+            Product(name = "SangTB", type = Const.TAB4),
+            Product(name = "SangTB", type = Const.TAB4),
+            Product(name = "SangTB", type = Const.TAB4),
         )
     )
 

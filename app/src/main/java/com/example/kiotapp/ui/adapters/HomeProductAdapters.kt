@@ -16,7 +16,7 @@ class HomeProductAdapters : BaseRecyclerViewAdapter<Product, ItemProductHomeFrag
         position: Int
     ) {
         holder.binding.apply {
-            imageView.setOnHoverListener { view, motionEvent ->
+            imageView.setOnHoverListener { _, _ ->
                 imageView.filterColor(R.color.color_77000000)
                 return@setOnHoverListener true
             }
