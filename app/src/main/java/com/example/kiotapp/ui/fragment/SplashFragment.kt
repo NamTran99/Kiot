@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.kiotapp.R
 import com.example.kiotapp.databinding.SplashFragmentBinding
 import com.example.kiotapp.ui.MainActivity
+import com.example.kiotapp.utils.onNavigate
 
 class SplashFragment : Fragment() {
     private lateinit var binding : SplashFragmentBinding
@@ -24,7 +25,7 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.linear1.setOnClickListener {
-            (activity as? MainActivity)?.onNavigate(R.id.action_splashFragment_to_choiceEatingFragment)
+            onNavigate(R.id.action_splashFragment_to_choiceEatingFragment)
         }
     }
 }

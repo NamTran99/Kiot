@@ -11,6 +11,6 @@
     <color name="h00aa1f">#00aa1f</color>
     <color name="h00aa1f_alpha">#B200AA1F</color>
     <color name="h003080">#003080</color>
-
+    <color name="grey">#22000000</color>
     <color name="color_77000000">#77000000</color>
 </resources>

@@ -1,19 +1,21 @@
 package com.example.kiotapp.ui.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModel
-import androidx.recyclerview.widget.GridLayoutManager
 import com.example.kiotapp.R
 import com.example.kiotapp.databinding.HomeFragmentBinding
 import com.example.kiotapp.ui.adapters.HomeProductAdapters
 import com.example.kiotapp.ui.viewmodel.HomeViewModel
+import com.example.kiotapp.utils.checkMotionEvent
 
-class HomeFragment : Fragment(R.layout.home_fragment){
+@SuppressLint("ClickableViewAccessibility")
+class HomeFragment : Fragment(R.layout.home_fragment) {
     private lateinit var binding: HomeFragmentBinding
     private val viewModel by activityViewModels<HomeViewModel>()
     private val productAdapter = HomeProductAdapters()
@@ -28,24 +30,38 @@ class HomeFragment : Fragment(R.layout.home_fragment){
             action = viewModel
             recyclerHome.adapter = productAdapter
 
+            return binding.root
         }
+    }
 
-        initObserver()
-        return binding.root
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initEffect()
     }
 
     private fun initObserver() {
-        viewModel.allProduct.observe(viewLifecycleOwner){
+        viewModel.allProduct.observe(viewLifecycleOwner) {
             productAdapter.updateItems(it.toMutableList())
         }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
-
-    override fun onDestroy() {
-        viewModelStore.clear()
-        super.onDestroy()
+    private fun initEffect() {
+        binding.tab1.imgItemTab.setOnTouchListener { _, motionEvent ->
+            binding.tab1.linearItemTab.isPressed = checkMotionEvent(motionEvent)
+            return@setOnTouchListener false
+        }
+        binding.tab2.imgItemTab.setOnTouchListener { _, motionEvent ->
+            binding.tab2.linearItemTab.isPressed = checkMotionEvent(motionEvent)
+            return@setOnTouchListener false
+        }
+        binding.tab3.imgItemTab.setOnTouchListener { _, motionEvent ->
+            binding.tab3.linearItemTab.isPressed = checkMotionEvent(motionEvent)
+            return@setOnTouchListener false
+        }
+        binding.tab0.imgItemTab.setOnTouchListener { _, motionEvent ->
+            binding.tab0.linearItemTab.isPressed = checkMotionEvent(motionEvent)
+            return@setOnTouchListener false
+        }
     }
 }

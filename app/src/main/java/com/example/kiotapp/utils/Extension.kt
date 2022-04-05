@@ -1,6 +1,7 @@
 package com.example.kiotapp.utils
 
 import android.annotation.SuppressLint
+import android.os.Bundle
 import android.util.Log
 import android.view.MotionEvent
 import android.view.animation.AlphaAnimation
@@ -10,7 +11,9 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.databinding.BindingAdapter
+import androidx.fragment.app.Fragment
 import com.example.kiotapp.R
+import com.example.kiotapp.ui.MainActivity
 import com.squareup.picasso.Picasso
 
 @SuppressLint("ClickableViewAccessibility")
@@ -50,13 +53,15 @@ fun LinearLayout.opacityView() {
     }
 }
 
-@BindingAdapter("app:url")
-fun ImageView.loadImage(url: String?) {
-    if (url.isNullOrEmpty()) return
-    Log.e("ImageView", "loadImage: $url")
-    Picasso.get().isLoggingEnabled = true
-    Picasso.get()
-        .load(url)
-        .placeholder(R.drawable.ic_menu)
-        .into(this)
+fun Fragment.checkMotionEvent(motionEvent : MotionEvent) : Boolean{
+   return when (motionEvent?.action) {
+        MotionEvent.ACTION_DOWN -> {
+            true
+        }
+        else->false
+    }
+}
+
+fun Fragment.onNavigate(actionId : Int, bundle : Bundle? = null){
+    (activity as? MainActivity)?.onNavigate(actionId,bundle)
 }

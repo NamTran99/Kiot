@@ -14,6 +14,7 @@ import com.example.kiotapp.ui.viewmodel.ReviewOrderViewModel
 class CompleteOrderFragment : Fragment(R.layout.complete_order_fragment) {
     private lateinit var binding : CompleteOrderFragmentBinding
     private val viewModel by activityViewModels<CompleteOrderViewModel>()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
