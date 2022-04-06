@@ -8,6 +8,7 @@
         android:background="@drawable/background_tab"
         android:clickable="true"
         android:gravity="center"
+        android:onClick="@{()->viewModel.onClickTab(type)}"
         android:paddingVertical="@dimen/dp10"
         android:layout_height="wrap_content"
         android:focusable="true">
@@ -22,7 +23,6 @@
                 android:id="@+id/imgItemTab"
                 android:layout_width="@dimen/dp40"
                 android:layout_height="@dimen/dp40"
-                android:onClick="@{()->viewModel.onClickTab(type)}"
                 android:scaleType="fitXY"
                 app:src ="@{src}"
                 />

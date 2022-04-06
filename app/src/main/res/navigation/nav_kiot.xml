@@ -54,5 +54,11 @@
         android:id="@+id/completeOrderFragment"
         android:name="com.example.kiotapp.ui.fragment.CompleteOrderFragment"
         android:label="CompleteOrderFragment"
-        tools:layout="@layout/complete_order_fragment"/>
+        tools:layout="@layout/complete_order_fragment">
+        <action
+            android:id="@+id/action_completeOrderFragment_to_splashFragment"
+            app:destination="@id/splashFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
 </navigation>

@@ -12,4 +12,10 @@
     <string name="take_out">Take out</string>
     <string name="product_price">$%s</string>
     <string name="product_calo">%d Cal</string>
+    <string name="review_my_eat_in_order">Review my Eat in order</string>
+    <string name="select_payment_type">Select payment type</string>
+    <string name="order_again">Order Again</string>
+    <string name="your_order_number_is">Your order number is 996</string>
+    <string name="thank_you">Thank you!</string>
+    <string name="your_order_has_been_placed">Your order has been placed</string>
 </resources>

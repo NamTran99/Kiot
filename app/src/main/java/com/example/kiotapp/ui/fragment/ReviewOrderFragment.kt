@@ -10,8 +10,10 @@ import com.example.kiotapp.R
 import com.example.kiotapp.databinding.ReviewOrderFragmentBinding
 import com.example.kiotapp.ui.viewmodel.HomeViewModel
 import com.example.kiotapp.ui.viewmodel.ReviewOrderViewModel
+import com.example.kiotapp.utils.onBackScreen
+import com.example.kiotapp.utils.onNavigate
 
-class ReviewOrderFragment : Fragment(R.layout.review_order_fragment) {
+class ReviewOrderFragment : Fragment() {
     private lateinit var binding : ReviewOrderFragmentBinding
     private val viewModel by activityViewModels<ReviewOrderViewModel>()
 
@@ -22,5 +24,15 @@ class ReviewOrderFragment : Fragment(R.layout.review_order_fragment) {
     ): View? {
         binding = ReviewOrderFragmentBinding.inflate(layoutInflater)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.btnDone.setOnClickListener {
+            onNavigate(R.id.action_reviewOrderFragment_to_paymentFragment)
+        }
+        binding.btnCancel.setOnClickListener {
+            onBackScreen()
+        }
     }
 }

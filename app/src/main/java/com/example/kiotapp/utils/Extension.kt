@@ -53,15 +53,31 @@ fun LinearLayout.opacityView() {
     }
 }
 
-fun Fragment.checkMotionEvent(motionEvent : MotionEvent) : Boolean{
-   return when (motionEvent?.action) {
+@BindingAdapter("app:url")
+fun ImageView.loadImage(url: String?) {
+    if (url.isNullOrEmpty()) return
+    Log.e("ImageView", "loadImage: $url")
+    Picasso.get().isLoggingEnabled = true
+    Picasso.get()
+        .load(url)
+        .placeholder(R.drawable.ic_menu)
+        .into(this)
+
+}
+
+fun Fragment.checkMotionEvent(motionEvent: MotionEvent): Boolean {
+    return when (motionEvent?.action) {
         MotionEvent.ACTION_DOWN -> {
             true
         }
-        else->false
+        else -> false
     }
 }
 
-fun Fragment.onNavigate(actionId : Int, bundle : Bundle? = null){
-    (activity as? MainActivity)?.onNavigate(actionId,bundle)
+fun Fragment.onNavigate(actionId: Int, bundle: Bundle? = null) {
+    (activity as? MainActivity)?.onNavigate(actionId, bundle)
+}
+
+fun Fragment.onBackScreen() {
+    (activity as? MainActivity)?.onBackStack()
 }

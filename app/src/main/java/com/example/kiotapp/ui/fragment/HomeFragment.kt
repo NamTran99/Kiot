@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -14,9 +13,11 @@ import com.example.kiotapp.databinding.HomeFragmentBinding
 import com.example.kiotapp.ui.adapters.HomeProductAdapters
 import com.example.kiotapp.ui.viewmodel.HomeViewModel
 import com.example.kiotapp.utils.checkMotionEvent
+import com.example.kiotapp.utils.onBackScreen
+import com.example.kiotapp.utils.onNavigate
 
 @SuppressLint("ClickableViewAccessibility")
-class HomeFragment : Fragment(R.layout.home_fragment){
+class HomeFragment : Fragment(){
     companion object{
         const val TAG = "HomeFragment"
     }
@@ -43,6 +44,16 @@ class HomeFragment : Fragment(R.layout.home_fragment){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initEffect()
+        listenerOnClick()
+    }
+
+    private fun listenerOnClick() {
+        binding.btnCancel.setOnClickListener {
+            onBackScreen()
+        }
+        binding.btnDone.setOnClickListener {
+            onNavigate(R.id.action_homeFragment_to_reviewOrderFragment)
+        }
     }
 
     private fun initObserver() {
