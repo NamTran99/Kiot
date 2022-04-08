@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.kiotapp.R
 import com.example.kiotapp.databinding.HomeFragmentBinding
+import com.example.kiotapp.ui.adapters.GridSpacingItemDecoration
 import com.example.kiotapp.ui.adapters.HomeProductAdapters
 import com.example.kiotapp.ui.viewmodel.HomeViewModel
 import com.example.kiotapp.utils.checkMotionEvent
@@ -20,6 +21,8 @@ import com.example.kiotapp.utils.onNavigate
 class HomeFragment : Fragment(){
     companion object{
         const val TAG = "HomeFragment"
+        const val RECYCLER_SPAN = 2
+        const val SPACE_NUMBER = 25
     }
     private lateinit var binding: HomeFragmentBinding
     private val viewModel by activityViewModels<HomeViewModel>()
@@ -34,6 +37,7 @@ class HomeFragment : Fragment(){
         binding.apply {
             action = viewModel
             recyclerHome.adapter = productAdapter
+            recyclerHome.addItemDecoration(GridSpacingItemDecoration(RECYCLER_SPAN, SPACE_NUMBER, true))
         }
 
         initObserver()
@@ -62,6 +66,7 @@ class HomeFragment : Fragment(){
             productAdapter.updateItems(it.toMutableList())
         }
     }
+
     private fun initEffect() {
         binding.tab1.imgItemTab.setOnTouchListener { _, motionEvent ->
             binding.tab1.linearItemTab.isPressed = checkMotionEvent(motionEvent)

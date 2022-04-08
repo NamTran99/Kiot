@@ -1,4 +1,4 @@
-package com.example.kiotapp.data
+package com.example.kiotapp.data.model
 
 import com.example.kiotapp.utils.Const
 

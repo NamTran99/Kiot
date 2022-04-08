@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingVertical="@dimen/dp10"
-        android:paddingEnd="@dimen/dp10">
+        android:layout_marginStart="@dimen/dp10">
 
         <LinearLayout
             android:id="@+id/recyclerTab"
@@ -20,38 +18,38 @@
             <include
                 android:id="@+id/tab0"
                 layout="@layout/item_tab"
-                app:viewModel="@{action}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 app:src="@{R.drawable.ic_menu}"
                 app:type="@{Const.TAB1}"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent" />
+                app:viewModel="@{action}" />
 
             <include
                 android:id="@+id/tab1"
                 layout="@layout/item_tab"
-                app:viewModel="@{action}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 app:src="@{R.drawable.ic_beverages}"
                 app:type="@{Const.TAB2}"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent" />
+                app:viewModel="@{action}" />
 
             <include
                 android:id="@+id/tab2"
                 layout="@layout/item_tab"
-                app:viewModel="@{action}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 app:src="@{R.drawable.ic_breakfast}"
                 app:type="@{Const.TAB3}"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent" />
+                app:viewModel="@{action}" />
 
             <include
                 android:id="@+id/tab3"
                 layout="@layout/item_tab"
-                app:viewModel="@{action}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 app:src="@{R.drawable.ic_burgers}"
                 app:type="@{Const.TAB4}"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent" />
+                app:viewModel="@{action}" />
 
         </LinearLayout>
 
@@ -66,11 +64,12 @@
             android:id="@+id/txtInformation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp20"
             android:layout_marginHorizontal="@dimen/dp4"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp10"
+            android:layout_marginBottom="@dimen/dp20"
             android:background="@drawable/boder_textview"
             android:padding="@dimen/dp15"
-            android:layout_marginStart="@dimen/dp10"
             android:text="@string/my_order_eat_in"
             app:layout_constraintBottom_toTopOf="@+id/btnDone"
             app:layout_constraintEnd_toEndOf="parent"
@@ -92,9 +91,9 @@
             style="@style/buttonStyle"
             android:layout_width="@dimen/dp0"
             android:layout_height="@dimen/dp40"
-            android:layout_marginBottom="@dimen/dp10"
-            android:layout_marginEnd="@dimen/dp20"
             android:layout_marginStart="@dimen/dp30"
+            android:layout_marginEnd="@dimen/dp20"
+            android:layout_marginBottom="@dimen/dp10"
             android:text="@string/cancel_order"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -104,19 +103,21 @@
             android:id="@+id/recyclerHome"
             android:layout_width="@dimen/dp0"
             android:layout_height="@dimen/dp0"
-            android:layout_marginStart="@dimen/dp10"
             android:layout_marginTop="@dimen/dp10"
             android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toTopOf="@+id/txtInformation"
             app:layout_constraintLeft_toRightOf="@+id/recyclerTab"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtTitle1" />
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle1"
+            app:spanCount="@integer/product_home_span_count" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <data>
-        <import type="com.example.kiotapp.R"/>
+
+        <import type="com.example.kiotapp.R" />
+
         <import type="com.example.kiotapp.utils.Const" />
 
         <variable
