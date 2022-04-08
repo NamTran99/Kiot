@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/groupInputDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleDialog">
+
+            <Button
+                style="@style/textStyleTitle"
+                android:layout_width="@dimen/dp60"
+                android:backgroundTint="@color/grey"
+                android:text="@string/minus"
+                android:textColor="@color/white" />
+
+            <TextView
+                style="@style/textStyleTitle"
+                android:layout_width="@dimen/dp50"
+                android:gravity="center"
+                android:text="1" />
+
+            <Button
+                style="@style/textStyleTitle"
+                android:layout_width="@dimen/dp60"
+                android:backgroundTint="@color/hff1744"
+                android:text="@string/plus"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/titleDialog"
+            style="@style/textStyleTitle"
+            android:padding="@dimen/dp10"
+            android:text="Add cocacola"
+            android:textStyle="normal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCancel"
+            style="@style/buttonStyle"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="@dimen/dp40"
+            android:layout_marginBottom="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp20"
+            android:layout_marginStart="@dimen/dp30"
+            android:layout_marginTop="@dimen/dp20"
+            android:text="@string/cancel_order"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/btnAddOrder"
+            app:layout_constraintTop_toBottomOf="@+id/groupInputDialog" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAddOrder"
+            style="@style/buttonStyle"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="@dimen/dp40"
+            android:layout_marginBottom="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp20"
+            android:layout_marginStart="@dimen/dp30"
+            android:layout_marginTop="@dimen/dp20"
+            android:text="@string/add_order"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/btnCancel"
+            app:layout_constraintTop_toBottomOf="@+id/groupInputDialog" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <variable
+            name="action"
+            type="com.sangtb.androidlibrary.base.action.IActionDialog" />
+    </data>
+</layout>

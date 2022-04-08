@@ -20,4 +20,5 @@
         <item name="android:textSize">@dimen/sp18</item>
         <item name="android:textColor">@color/black</item>
     </style>
+
 </resources>
