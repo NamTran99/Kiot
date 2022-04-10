@@ -14,6 +14,8 @@ abstract class BaseRecyclerViewAdapter<T : Any, VB : ViewBinding> :
     protected var items = mutableListOf<T>()
     var listener: ((view : View, item : T, position : Int)->Unit )? = null
 
+
+
     fun updateItems(items: MutableList<T>) {
         val taskDiffCallBack = BaseDiffCallBack<T>(this.items,items)
         val diffResult = DiffUtil.calculateDiff(taskDiffCallBack)

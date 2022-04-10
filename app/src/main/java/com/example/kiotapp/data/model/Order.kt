@@ -1,8 +1,7 @@
 package com.example.kiotapp.data.model
 
 data class Order(
-    val idBill: Int,
-    val idOrder: Int,
-    val idProduct: Int,
-    val count: Int,
+    var idBill: Int = 0,
+    var idProduct: Int = 0,
+    var count: Int = 0,
 )

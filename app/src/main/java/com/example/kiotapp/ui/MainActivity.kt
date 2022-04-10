@@ -1,7 +1,7 @@
 package com.example.kiotapp.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -9,7 +9,7 @@ import com.example.kiotapp.R
 import com.example.kiotapp.data.repository.IRepository
 import com.example.kiotapp.data.repository.Repository
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : FragmentActivity() {
     private lateinit var _navHostController : NavController
     private lateinit var _navHostFragment: NavHostFragment
     private val repository:IRepository = Repository.getInstance()

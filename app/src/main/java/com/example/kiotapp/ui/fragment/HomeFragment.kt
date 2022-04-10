@@ -13,20 +13,23 @@ import com.example.kiotapp.databinding.HomeFragmentBinding
 import com.example.kiotapp.ui.adapters.GridSpacingItemDecoration
 import com.example.kiotapp.ui.adapters.HomeProductAdapters
 import com.example.kiotapp.ui.viewmodel.HomeViewModel
+import com.example.kiotapp.utils.DialogKiot
 import com.example.kiotapp.utils.checkMotionEvent
 import com.example.kiotapp.utils.onBackScreen
 import com.example.kiotapp.utils.onNavigate
 
 @SuppressLint("ClickableViewAccessibility")
-class HomeFragment : Fragment(){
-    companion object{
+class HomeFragment : Fragment() {
+    companion object {
         const val TAG = "HomeFragment"
         const val RECYCLER_SPAN = 2
         const val SPACE_NUMBER = 25
     }
+
     private lateinit var binding: HomeFragmentBinding
     private val viewModel by activityViewModels<HomeViewModel>()
     private val productAdapter = HomeProductAdapters()
+    private val dialog = DialogKiot()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,9 +40,19 @@ class HomeFragment : Fragment(){
         binding.apply {
             action = viewModel
             recyclerHome.adapter = productAdapter
-            recyclerHome.addItemDecoration(GridSpacingItemDecoration(RECYCLER_SPAN, SPACE_NUMBER, true))
+            recyclerHome.addItemDecoration(
+                GridSpacingItemDecoration(
+                    RECYCLER_SPAN,
+                    SPACE_NUMBER,
+                    true
+                )
+            )
         }
 
+        productAdapter.setOnItemClickListener { _, item, _ ->
+            viewModel.onClickProduct(item)
+            dialog.setTitle(item.name).show(parentFragmentManager, DialogKiot.TAG)
+        }
         initObserver()
         return binding.root
     }
@@ -61,7 +74,7 @@ class HomeFragment : Fragment(){
     }
 
     private fun initObserver() {
-        viewModel.allProduct.observe(viewLifecycleOwner){
+        viewModel.allProduct.observe(viewLifecycleOwner) {
             Log.d(TAG, "initObserver: data for product adapter: $it")
             productAdapter.updateItems(it.toMutableList())
         }

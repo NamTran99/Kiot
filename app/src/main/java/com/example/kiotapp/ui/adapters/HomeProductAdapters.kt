@@ -1,6 +1,7 @@
 package com.example.kiotapp.ui.adapters
 
 import android.annotation.SuppressLint
+import android.view.View
 import com.example.kiotapp.R
 import com.example.kiotapp.data.model.Product
 import com.example.kiotapp.databinding.ItemProductHomeFragmentBinding
@@ -19,9 +20,16 @@ class HomeProductAdapters : BaseRecyclerViewAdapter<Product, ItemProductHomeFrag
         position: Int
     ) {
         holder.binding.apply {
+            root.setOnClickListener {
+                listener?.invoke(it ,items[position],position)
+            }
             imageView.filterColorWhenTouch(R.color.color_77000000)
             imageView.startAnimationWhenTouch()
             product = items[position]
         }
+    }
+
+    fun setOnItemClickListener(mListener: ((view : View, item : Product, position : Int)->Unit )){
+        listener = mListener
     }
 }
