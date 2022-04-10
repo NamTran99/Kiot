@@ -26,4 +26,14 @@
     <string name="edit">Edit</string>
     <string name="back">Back</string>
     <string name="process_to_checkout">Process to checkout</string>
+    <string name="vnd">vnd</string>
+    <string name="product">Sản Phẩm</string>
+    <string name="quantity">Số lượng</string>
+    <string name="price">Đơn Giá</string>
+    <string name="money">Thành Tiền</string>
+    <string name="total_price">Tổng Tiền:</string>
+    <string name="price_1">Giá</string>
+    <string name="order">Đơn hàng</string>
+    <string name="booking_date">Ngày Đặt</string>
+    <string name="status">Trình trạng</string>
 </resources>

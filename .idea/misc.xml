@@ -4,22 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/LAPTOP/AndroidStudioProjects/KiotApp/app/src/main/res/drawable/background_tab.xml" value="0.1" />
-        <entry key="..\:/Users/LAPTOP/AndroidStudioProjects/KiotApp/app/src/main/res/drawable/background_touch.xml" value="0.1" />
-        <entry key="..\:/Users/LAPTOP/AndroidStudioProjects/KiotApp/app/src/main/res/drawable/backgroung_button.xml" value="0.1" />
-        <entry key="..\:/Users/LAPTOP/AndroidStudioProjects/KiotApp/app/src/main/res/drawable/boder_textview.xml" value="0.1" />
-        <entry key="..\:/Users/LAPTOP/AndroidStudioProjects/KiotApp/app/src/main/res/drawable/btn_bg_selector.xml" value="0.1" />
-        <entry key="..\:/Users/LAPTOP/AndroidStudioProjects/KiotApp/app/src/main/res/drawable/btn_bg_selector_2.xml" value="0.122" />
-        <entry key="..\:/Users/LAPTOP/AndroidStudioProjects/KiotApp/app/src/main/res/layout-v26/review_order_fragment.xml" value="0.2" />
         <entry key="..\:/Users/LAPTOP/AndroidStudioProjects/KiotApp/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/LAPTOP/AndroidStudioProjects/KiotApp/app/src/main/res/layout/choice_eating_fragment.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/LAPTOP/AndroidStudioProjects/KiotApp/app/src/main/res/layout/complete_order_fragment.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/LAPTOP/AndroidStudioProjects/KiotApp/app/src/main/res/layout/dialog_kiot.xml" value="0.2" />
+        <entry key="..\:/Users/LAPTOP/AndroidStudioProjects/KiotApp/app/src/main/res/layout/dialog_kiot.xml" value="0.1" />
         <entry key="..\:/Users/LAPTOP/AndroidStudioProjects/KiotApp/app/src/main/res/layout/home_fragment.xml" value="0.1" />
         <entry key="..\:/Users/LAPTOP/AndroidStudioProjects/KiotApp/app/src/main/res/layout/item_product_home_fragment.xml" value="0.1" />
-        <entry key="..\:/Users/LAPTOP/AndroidStudioProjects/KiotApp/app/src/main/res/layout/item_review_order.xml" value="0.2" />
         <entry key="..\:/Users/LAPTOP/AndroidStudioProjects/KiotApp/app/src/main/res/layout/item_tab.xml" value="0.1" />
-        <entry key="..\:/Users/LAPTOP/AndroidStudioProjects/KiotApp/app/src/main/res/layout/payment_fragment.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/LAPTOP/AndroidStudioProjects/KiotApp/app/src/main/res/layout/review_order_fragment.xml" value="0.176" />
+        <entry key="..\:/Users/LAPTOP/AndroidStudioProjects/KiotApp/app/src/main/res/layout/review_order_fragment.xml" value="0.2" />
+        <entry key="..\:/android/android_kotlin/Kiot/app/src/main/res/layout/dialog_kiot.xml" value="0.1" />
+        <entry key="..\:/android/android_kotlin/Kiot/app/src/main/res/layout/fragment_bill.xml" value="0.11514052583862194" />
+        <entry key="..\:/android/android_kotlin/Kiot/app/src/main/res/layout/fragment_detail_bill.xml" value="0.144" />
+        <entry key="..\:/android/android_kotlin/Kiot/app/src/main/res/layout/item_bill.xml" value="0.2" />
+        <entry key="..\:/android/android_kotlin/Kiot/app/src/main/res/layout/item_detail_bill.xml" value="0.16" />
       </map>
     </option>
   </component>

@@ -21,4 +21,18 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="StyleBill">
+        <item name="android:layout_margin">@dimen/dp10</item>
+        <item name="cardBackgroundColor">@color/black</item>
+        <item name="cardElevation">@dimen/dp4</item>
+        <item name="cardCornerRadius">@dimen/dp7</item>
+    </style>
+
+    <style name="TextStyleDetailBill">
+        <item name="android:padding">@dimen/dp5</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/sp18</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 </resources>

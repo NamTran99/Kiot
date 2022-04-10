@@ -3,9 +3,7 @@ package com.example.kiotapp.ui.adapters
 import android.view.View
 import com.example.kiotapp.R
 import com.example.kiotapp.data.model.OrderInformation
-import com.example.kiotapp.data.model.Product
 import com.example.kiotapp.databinding.ItemReviewOrderBinding
-import com.example.kiotapp.utils.BaseRecyclerViewAdapter
 
 class ReviewOrderAdapters : BaseRecyclerViewAdapter<OrderInformation, ItemReviewOrderBinding>() {
     override fun getLayout(): Int {

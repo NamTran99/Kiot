@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp10"
+        android:padding="@dimen/dp5"
+        app:cardCornerRadius="@dimen/dp10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp2"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="@dimen/dp150"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dp5">
+
+                <TextView
+                    style="@style/TextStyleDetailBill"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/order"
+                    android:textColor="@color/h00aa1f" />
+
+                <TextView
+                    style="@style/TextStyleDetailBill"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/booking_date"
+                    android:textColor="@color/h00aa1f" />
+
+                <TextView
+                    style="@style/TextStyleDetailBill"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/status"
+                    android:textColor="@color/h00aa1f" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="@dimen/dp2"
+                android:layout_height="match_parent"
+                android:background="@color/h00aa1f" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <TextView
+                    style="@style/TextStyleDetailBill"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/status" />
+
+                <TextView
+                    style="@style/TextStyleDetailBill"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/status" />
+
+                <TextView
+                    style="@style/TextStyleDetailBill"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/status" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
