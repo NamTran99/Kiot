@@ -7,7 +7,8 @@ import kotlinx.coroutines.flow.Flow
 interface IRepository {
     fun getAllProduct()
     fun getAllUrlImage()
-    val allProduct:LiveData<List<Product>>
+    val allProductLive:LiveData<List<Product>>
+    val allProduct: List<Product>
     val mapLiveImage:LiveData<Map<Int, String>>
     suspend fun getUrlImage(image:String): Flow<String>
 }

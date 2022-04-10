@@ -22,4 +22,6 @@
     <dimen name="dp100">100dp</dimen>
     <dimen name="dp3">3dp</dimen>
     <dimen name="dp200">200dp</dimen>
+    <dimen name="sp10">10sp</dimen>
+    <dimen name="sp15">15sp</dimen>
 </resources>

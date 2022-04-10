@@ -70,7 +70,7 @@
             android:layout_marginBottom="@dimen/dp20"
             android:background="@drawable/boder_textview"
             android:padding="@dimen/dp15"
-            android:text="@{@string/my_order_eat_in(action.myOrderGeneral.tax,action.myOrderGeneral.total,action.myOrderGeneral.items)}"
+            android:text="@{action.myOrderGeneral}"
             app:layout_constraintBottom_toTopOf="@+id/btnDone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="parent" />

@@ -14,4 +14,7 @@
     <color name="grey">#22000000</color>
     <color name="color_77000000">#77000000</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="color_f6f6f6">#F6F6F6</color>
+    <color name="b5b5b5">#b5b5b5</color>
+    <color name="color_685d5d">#685D5D</color>
 </resources>

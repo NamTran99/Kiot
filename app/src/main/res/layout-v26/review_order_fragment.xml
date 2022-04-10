@@ -64,8 +64,11 @@
             android:layout_height="@dimen/dp40"
             android:layout_marginEnd="@dimen/dp20"
             android:maxLines="1"
-            android:autoSizeMinTextSize="10sp"
-            android:text="Process to checkout"
+            android:autoSizeMinTextSize="@dimen/sp10"
+            android:autoSizeMaxTextSize="@dimen/sp15"
+            app:autoSizeTextType="uniform"
+            android:paddingHorizontal="@dimen/dp5"
+            android:text="@string/process_to_checkout"
             app:layout_constraintBottom_toBottomOf="@id/btnCancel"
             app:layout_constraintLeft_toRightOf="@+id/btnCancel"
             app:layout_constraintRight_toRightOf="parent" />

@@ -1,4 +1,4 @@
-package com.example.kiotapp.ui.adapters
+package com.example.kiotapp.utils
 
 import android.graphics.Rect
 import android.view.View

@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.kiotapp.R
 import com.example.kiotapp.databinding.HomeFragmentBinding
-import com.example.kiotapp.ui.adapters.GridSpacingItemDecoration
+import com.example.kiotapp.utils.GridSpacingItemDecoration
 import com.example.kiotapp.ui.adapters.HomeProductAdapters
 import com.example.kiotapp.ui.viewmodel.HomeViewModel
 import com.example.kiotapp.utils.DialogKiot
@@ -27,7 +27,7 @@ class HomeFragment : Fragment() {
     }
 
     private lateinit var binding: HomeFragmentBinding
-    private val viewModel by activityViewModels<HomeViewModel>()
+    private val viewModel: HomeViewModel by activityViewModels()
     private val productAdapter = HomeProductAdapters()
     private val dialog = DialogKiot()
 
@@ -38,6 +38,7 @@ class HomeFragment : Fragment() {
     ): View {
         binding = HomeFragmentBinding.inflate(layoutInflater)
         binding.apply {
+            lifecycleOwner = this@HomeFragment
             action = viewModel
             recyclerHome.adapter = productAdapter
             recyclerHome.addItemDecoration(

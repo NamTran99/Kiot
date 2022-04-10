@@ -20,8 +20,9 @@ class Repository private constructor() : IRepository {
     private val fireStorage = FirebaseStorage.getInstance(FireBaseConst.FIRE_STORAGE_BUCKETS)
     private val storageRef = fireStorage.reference
 
-    private val _allProduct = MutableLiveData(listOf<Product>())
-    override val allProduct: LiveData<List<Product>> = _allProduct
+    override var allProduct = listOf<Product>()
+            private val _allProductLive = MutableLiveData(allProduct)
+    override val allProductLive: LiveData<List<Product>> = _allProductLive
 
     private val coroutine = CoroutineScope(Dispatchers.IO)
 
@@ -39,7 +40,8 @@ class Repository private constructor() : IRepository {
                 }
             }
             Log.d(TAG, "getAllProduct: $listProduct")
-            _allProduct.postValue(listProduct)
+            allProduct = listProduct
+            _allProductLive.postValue(allProduct)
         }.addOnFailureListener {
             Log.d(TAG, "getAllProduct -- ERROR: ")
         }

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">KiotApp</string>
     <string name="cancel_order">Cancel</string>
+    <string name="remove_from_order">Remove from order</string>
     <string name="done">Done</string>
     <string name="my_order_eat_in">My Order - Eat | Tax: $%.2f | Total: $%.2f | Items: %d</string>
     <string name="main_menu">Main Menu</string>
@@ -12,13 +13,17 @@
     <string name="take_out">Take out</string>
     <string name="product_price">$%s</string>
     <string name="product_calo">%d Cal</string>
+    <string name="product_count_and_price">%d x %.2f</string>
     <string name="review_my_eat_in_order">Review my Eat in order</string>
     <string name="select_payment_type">Select payment type</string>
     <string name="order_again">Order Again</string>
-    <string name="your_order_number_is">Your order number is 996</string>
+    <string name="your_order_number_is">Your order number is %d</string>
     <string name="thank_you">Thank you!</string>
     <string name="your_order_has_been_placed">Your order has been placed</string>
     <string name="plus">+</string>
     <string name="minus">-</string>
     <string name="add_order">Add To Order</string>
+    <string name="edit">Edit</string>
+    <string name="back">Back</string>
+    <string name="process_to_checkout">Process to checkout</string>
 </resources>
