@@ -5,19 +5,17 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.map
+import androidx.lifecycle.viewModelScope
 import com.example.kiotapp.R
 import com.example.kiotapp.data.ItemMenuAction
-import com.example.kiotapp.data.model.Order
-import com.example.kiotapp.data.model.OrderGeneral
-import com.example.kiotapp.data.model.OrderInformation
-import com.example.kiotapp.data.model.Product
+import com.example.kiotapp.data.model.*
 import com.example.kiotapp.data.repository.IRepository
 import com.example.kiotapp.data.repository.Repository
 import com.example.kiotapp.utils.Const
 import com.example.kiotapp.utils.IDialogKiotViewModel
 import com.example.kiotapp.utils.combine
 import com.example.kiotapp.utils.notifyObserver
-import com.sangtb.androidlibrary.base.data.DataDialog
+import kotlinx.coroutines.launch
 
 class HomeViewModel(application: Application) : AndroidViewModel(application),
     ItemMenuAction<Product>, IDialogKiotViewModel {
@@ -32,8 +30,15 @@ class HomeViewModel(application: Application) : AndroidViewModel(application),
     private val _listOrder = mutableMapOf<Int, Order>()
     private val listOrderLive = MutableLiveData(mutableMapOf<Int, Order>())
 
-    private val _currentBill = OrderGeneral()
-    val currentBillLive = MutableLiveData(_currentBill)
+    override val isEnableMinusButton = currentOrderSelected.map {
+        it.count > 1
+    }
+
+    override val isEnableRemoveFromCart = MutableLiveData(false)
+
+    val isCartEmpty = listOrderLive.map {
+        it.isNotEmpty()
+    }
 
     val orderInformation = listOrderLive.map {
         it.values.map { order ->
@@ -47,8 +52,6 @@ class HomeViewModel(application: Application) : AndroidViewModel(application),
             )
         }
     }
-
-    val abc = MutableLiveData(DataDialog())
 
     val allProduct = repository.allProductLive.combine(_typeTab) { allProduct, typeTab ->
         if (typeTab == Const.TAB1) {
@@ -64,7 +67,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application),
         return repository.allProduct.find { it.productId == productID }
     }
 
-    val myOrderGeneral = listOrderLive.map { it ->
+    val myOrderGeneral = listOrderLive.map {
         val orderGeneral = OrderGeneral()
         orderGeneral.apply {
             it.values.forEach { order ->
@@ -86,11 +89,10 @@ class HomeViewModel(application: Application) : AndroidViewModel(application),
         listOrderLive.value = _listOrder
     }
 
-    override val isEnableMinusButton = currentOrderSelected.map {
-        it.count > 1
+    fun saveDataToServer() = viewModelScope.launch{
+        repository.saveOrderToRemote(_listOrder.values.toList())
+        repository.saveBillToRemote(Bill(idBill = idBill.value?:0, status = 0))
     }
-
-    override val isEnableRemoveFromCart = MutableLiveData(false)
 
     fun onClickOrderInformation(item: OrderInformation){
         onClickProduct(findProductById(item.idProduct)?: Product())

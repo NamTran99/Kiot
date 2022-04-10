@@ -78,10 +78,12 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnDone"
             style="@style/buttonStyle"
+            android:background="@drawable/btn_bg_selector"
             android:layout_width="@dimen/dp0"
             android:layout_height="@dimen/dp40"
             android:layout_marginEnd="@dimen/dp20"
             android:text="@string/done"
+            android:enabled="@{action.isCartEmpty}"
             app:layout_constraintBottom_toBottomOf="@id/btnCancel"
             app:layout_constraintLeft_toRightOf="@+id/btnCancel"
             app:layout_constraintRight_toRightOf="parent" />

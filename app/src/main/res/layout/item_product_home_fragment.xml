@@ -28,7 +28,6 @@
                 android:layout_height="@dimen/dp200"
                 android:scaleType="fitXY"
                 app:url="@{product.image}"
-                android:src="@drawable/img_eat_in"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

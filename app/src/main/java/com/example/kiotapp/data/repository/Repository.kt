@@ -3,16 +3,22 @@ package com.example.kiotapp.data.repository
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.kiotapp.data.model.Bill
 import com.example.kiotapp.data.model.Order
 import com.example.kiotapp.data.model.Product
 import com.example.kiotapp.utils.FireBaseConst
+import com.example.kiotapp.utils.FireBaseConst.COLLECTION_BILL
+import com.example.kiotapp.utils.FireBaseConst.COLLECTION_ORDER
 import com.example.kiotapp.utils.FireBaseConst.COLLECTION_PRODUCT
+import com.example.kiotapp.utils.getTimeZoneToFloat
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.launch
 
 class Repository private constructor() : IRepository {
     private val fireStore = Firebase.firestore
@@ -47,6 +53,21 @@ class Repository private constructor() : IRepository {
         }
     }
 
+    override fun saveOrderToRemote(userInformation: List<Order>) {
+        userInformation.forEach {
+            val map = hashMapOf(
+                "time" to getTimeZoneToFloat()
+            )
+            fireStore.collection(COLLECTION_ORDER).add(it).addOnSuccessListener {ref ->
+                ref.update(map as Map<String, Any>)
+            }
+        }
+    }
+
+    override fun saveBillToRemote(bill: Bill){
+        fireStore.collection(COLLECTION_BILL).document(bill.idBill.toString()).set(bill)
+    }
+
     private val mapImage = mutableMapOf<Int, String>()
     private val _mapLiveImage  = MutableLiveData(mapImage.toMap())
     override val mapLiveImage: LiveData<Map<Int, String>>  = _mapLiveImage
@@ -78,28 +99,13 @@ class Repository private constructor() : IRepository {
                 Log.d(TAG, "getUrlImage: sad")
                 coroutine.launch {
                     emit(it.toString())
-                    Log.d(TAG, "getUrlImage: phat ${it.toString()}")
+                    Log.d(TAG, "getUrlImage: phat $it")
                 }
             }.addOnFailureListener {
                 Log.d(TAG, "getUrlImage: error = $it")
             }
         }
     }
-
-    val _currentOrder = mutableListOf<Order>()
-    private val _curLiveOrder = MutableLiveData(_currentOrder)
-    val curLiveOrderSelected: LiveData<MutableList<Order>> = _curLiveOrder
-
-    fun addProductSelected(order: Order){
-        _currentOrder.add(order)
-        _curLiveOrder.value = _currentOrder
-    }
-
-    fun removeProductSelected(){
-        _currentOrder.clear()
-        _curLiveOrder.value = _currentOrder
-    }
-
 
     private object Holder {
         val INSTANCE = Repository()

@@ -33,6 +33,7 @@ class CompleteOrderFragment : Fragment(R.layout.complete_order_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnCancel.setOnClickListener {
+            viewModel.saveDataToServer()
             onNavigate(R.id.action_completeOrderFragment_to_splashFragment)
         }
     }

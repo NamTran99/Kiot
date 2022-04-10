@@ -29,4 +29,6 @@
     <dimen name="sp18">18sp</dimen>
     <dimen name="sp10">10sp</dimen>
     <dimen name="sp15">15sp</dimen>
+    <dimen name="sp8">8sp</dimen>
+    <dimen name="sp13">13sp</dimen>
 </resources>

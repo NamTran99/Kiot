@@ -28,9 +28,6 @@ class DialogKiot : DialogLibrary<DialogKiotBinding>(), IDialogLibrary {
         super.onViewCreated(view, savedInstanceState)
         binding.action = viewModel
         binding.dialogHelper = this
-        dataDialog.observe(viewLifecycleOwner){
-            viewModel.abc.value = it
-        }
     }
 
     override fun onCancel() {

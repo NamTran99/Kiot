@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="buttonStyle">
-        <item name="android:textSize">@dimen/sp18</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:background">@drawable/background_button</item>
     </style>

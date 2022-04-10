@@ -14,18 +14,12 @@ import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.databinding.BindingAdapter
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.findViewTreeLifecycleOwner
-import androidx.lifecycle.lifecycleScope
 import com.example.kiotapp.R
-import com.example.kiotapp.data.repository.IRepository
-import com.example.kiotapp.data.repository.Repository
 import com.example.kiotapp.ui.MainActivity
 import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
+import java.time.LocalDateTime
+import java.time.ZoneOffset
 
 @SuppressLint("ClickableViewAccessibility")
 fun ImageView.filterColorWhenTouch(color: Int) {
@@ -84,14 +78,15 @@ fun LinearLayout.opacityView() {
 @BindingAdapter("app:url")
 fun ImageView.loadImage(url: String?) {
     if (url.isNullOrEmpty()) return
+    Log.d("ImageAdapter", "loadImage: $url")
     val fireStorage = FirebaseStorage.getInstance(FireBaseConst.FIRE_STORAGE_BUCKETS)
-     val storageRef = fireStorage.reference
+    val storageRef = fireStorage.reference
 
+    Picasso.get().load(R.drawable.ic_menu)
     storageRef.child(url).downloadUrl.addOnSuccessListener {
         Picasso.get().isLoggingEnabled = true
         Picasso.get()
             .load(it)
-            .placeholder(R.drawable.ic_menu)
             .into(this)
     }.addOnFailureListener {
         Log.d("ImageAdapter", "loadImage: $it")
@@ -114,3 +109,6 @@ fun Fragment.onNavigate(actionId: Int, bundle: Bundle? = null) {
 fun Fragment.onBackScreen() {
     (activity as? MainActivity)?.onBackStack()
 }
+
+fun getTimeZoneToFloat() =
+    LocalDateTime.now().toEpochSecond(ZoneOffset.UTC)
